@@ -1,3 +1,11 @@
+<!-- (41)When the query is sent from the JavaScript to the PHP file,
+
+the following happens:
+1. PHP opens a connection to a MySQL server
+2. The correct person is found
+3. An HTML table is created, filled with data, and sent back
+to the "txtHint" placeholder -->
+
 <html>
 <head>
     <title>Instant Search</title>
