@@ -1,4 +1,3 @@
-<!DOCTYPE html>
 <html>
 <head>
     <title>Instant Search</title>
@@ -22,7 +21,7 @@
     <?php
     if (isset($_POST['query'])) {
         $result = array(
-            array('name' => 'udesh', 'email' => 'udesh@example.com'),
+            array('name' => 'Shyam', 'email' => 'Shyam@example.com'),
             array('name' => 'Jane Smith', 'email' => 'jane.smith@example.com'),
             array('name' => 'Michael Johnson', 'email' => 'michael.johnson@example.com')
         );
