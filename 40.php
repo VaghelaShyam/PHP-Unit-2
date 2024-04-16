@@ -1,3 +1,6 @@
+<!-- (40)Write script in creates a simple interface where users can
+type in a name and get instant search results using AJAX. -->
+
 <html>
 <head>
     <title>Instant Search</title>
