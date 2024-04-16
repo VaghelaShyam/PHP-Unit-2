@@ -1,21 +1,45 @@
-<h2>jQuery and AJAX is FUN!!!</h2>
-<p id="p1">This is some text in a paragraph.</p>
+<!-- (42)Write Script on Jquery with ajax updating text files -->
+
+
 <!DOCTYPE html>
 <html>
 <head>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.3/jquery.min.js"></script>
-<script>
-$(document).ready(function()
-{
- $("button").click(function()
-{
- $("#div1").load("demo_test.txt");
- });
-});
-</script>
+    <title>Update Text File</title>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 <body>
-<div id="div1"><h2>Let jQuery AJAX Change This Text</h2></div>
-<button>Get External Content</button>
+    <h1>Update Text File</h1>
+    <form id="updateForm">
+        <label for="fileContent">Enter text:</label><br>
+        <textarea id="fileContent" name="fileContent" rows="4" cols="50"></textarea><br>
+        <input type="submit" value="Update File">
+    </form>
+    <div id="responseMessage"></div>
+
+    <script>
+        $(document).ready(function(){
+            $('#updateForm').submit(function(e){
+                e.preventDefault();
+
+                var content = $('#fileContent').val();
+                $.post('', {fileContent: content}, function(response){
+                    $('#responseMessage').html(response);
+                });
+            });
+        });
+    </script>
+
+    <?php
+    if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['fileContent'])) {
+        $content = $_POST['fileContent'];
+        $file = 'data.txt';
+
+        if (file_put_contents($file, $content) !== false) {
+            echo "<script>$('#responseMessage').html('File updated successfully');</script>";
+        } else {
+            echo "<script>$('#responseMessage').html('Error updating file');</script>";
+        }
+    }
+    ?>
 </body>
 </html>
